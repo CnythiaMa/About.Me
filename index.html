@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>马昕玥 | Xinyue Ma</title>
+  <style>
+    :root {
+      --primary: #2c5f8a;
+      --accent: #4a90c4;
+      --light-bg: #f7f9fc;
+      --text: #2d3748;
+      --muted: #718096;
+      --border: #e2e8f0;
+      --tag-bg: #ebf4ff;
+      --tag-color: #2c5f8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", sans-serif;
+      background: var(--light-bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─── Header ─── */
+    header {
+      background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 60%, #4a90c4 100%);
+      color: #fff;
+      padding: 3rem 1rem 2.5rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: .05em; }
+    header .en-name { font-size: 1.15rem; opacity: .85; margin-top: .3rem; }
+    header .tagline {
+      margin-top: .8rem;
+      font-size: .95rem;
+      opacity: .75;
+      max-width: 520px;
+      margin-left: auto; margin-right: auto;
+    }
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .6rem 1.4rem;
+      margin-top: 1.4rem;
+      font-size: .9rem;
+    }
+    .contact-row a { color: #bee3f8; text-decoration: none; }
+    .contact-row a:hover { color: #fff; text-decoration: underline; }
+    .contact-icon { margin-right: .3em; }
+    .btn-resume {
+      display: inline-block;
+      margin-top: 1.6rem;
+      padding: .55rem 1.5rem;
+      background: rgba(255,255,255,.15);
+      border: 1.5px solid rgba(255,255,255,.6);
+      border-radius: 24px;
+      color: #fff;
+      font-size: .9rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .btn-resume:hover { background: rgba(255,255,255,.28); }
+
+    /* ─── Layout ─── */
+    .container {
+      max-width: 860px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    /* ─── Section ─── */
+    section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: .4rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* ─── Card ─── */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.3rem 1.5rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+      margin-bottom: 1rem;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .card-title { font-weight: 700; font-size: 1rem; }
+    .card-subtitle { color: var(--muted); font-size: .9rem; margin-top: .1rem; }
+    .card-date {
+      font-size: .85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-body { margin-top: .7rem; font-size: .93rem; }
+    .card-body ul { padding-left: 1.2rem; }
+    .card-body li { margin-bottom: .35rem; }
+
+    /* ─── Tags ─── */
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .8rem; }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-color);
+      border-radius: 12px;
+      padding: .2rem .75rem;
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    /* ─── Publication ─── */
+    .pub { font-size: .9rem; margin-bottom: .5rem; }
+    .pub .title { font-weight: 600; }
+    .pub .venue {
+      display: inline-block;
+      margin-left: .4em;
+      background: #fef3c7;
+      color: #92400e;
+      border-radius: 10px;
+      padding: .05rem .5rem;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+    .pub .note { color: var(--muted); font-size: .83rem; margin-top: .25rem; }
+
+    /* ─── Award grid ─── */
+    .award-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .award-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .35rem .8rem;
+      font-size: .85rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .award-item .year { color: var(--muted); font-size: .78rem; }
+
+    /* ─── Interests ─── */
+    .interests-grid { display: flex; flex-wrap: wrap; gap: .7rem; }
+    .interest-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: .7rem 1rem;
+      font-size: .9rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .83rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .card { padding: 1rem 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <h1>马昕玥</h1>
+  <p class="en-name">Xinyue Ma</p>
+  <p class="tagline">神经药理学博士生 · 生命科学大模型研究者<br>PhD Candidate in Neuropharmacology &amp; Life Science LLM Researcher</p>
+  <div class="contact-row">
+    <span><span class="contact-icon">📧</span><a href="mailto:maxinyue@hsc.pku.edu.cn">maxinyue@hsc.pku.edu.cn</a></span>
+    <span><span class="contact-icon">📱</span>18009057142</span>
+    <span><span class="contact-icon">📍</span>北京大学医学部，海淀区</span>
+    <span><span class="contact-icon">🔗</span><a href="https://github.com/CnythiaMa" target="_blank">github.com/CnythiaMa</a></span>
+  </div>
+  <a class="btn-resume" href="resume.pdf" target="_blank">📄 下载简历 / Download CV</a>
+</header>
+
+<div class="container">
+
+  <!-- ═══ ABOUT ═══ -->
+  <section>
+    <div class="card" style="border-left: 4px solid var(--accent);">
+      <div class="card-body">
+        北京大学药学院神经药理学方向直博生（导师：黄卓教授），预计 2027 年 1 月毕业。
+        研究方向涵盖神经科学、膜片钳电生理、代谢与癫痫离子通道；近年跨界投身 AI for Science，
+        在九坤旗下算秩未来从事生命科学大语言模型研发，主导 <strong>1T token</strong> 量级数据构造及持续预训练工作。
+      </div>
+      <div class="tags">
+        <span class="tag">神经科学</span>
+        <span class="tag">膜片钳电生理</span>
+        <span class="tag">癫痫 · 离子通道</span>
+        <span class="tag">Life Science LLM</span>
+        <span class="tag">持续预训练 CPT</span>
+        <span class="tag">Megatron / HF Transformers</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ EDUCATION ═══ -->
+  <section>
+    <div class="section-title">🎓 教育经历</div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">北京大学</div>
+          <div class="card-subtitle">药学院 · 分子与细胞药理系 · 神经药理学 &nbsp;|&nbsp; 直博在读</div>
+        </div>
+        <div class="card-date">2021.09 — 2027.01（预计）</div>
+      </div>
+      <div class="card-body">
+        导师：黄卓教授 &nbsp;·&nbsp; 英语 CET-6 568 分
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">北京大学</div>
+          <div class="card-subtitle">药学院 药学（主修）&nbsp;+&nbsp; 国家发展研究院 经济学（双学位）&nbsp;|&nbsp; 本科</div>
+        </div>
+        <div class="card-date">2017.09 — 2021.06</div>
+      </div>
+      <div class="card-body">
+        英语 CET-4 596 分 &nbsp;·&nbsp; 北京大学优秀毕业生（2021）
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERNSHIP ═══ -->
+  <section>
+    <div class="section-title">💼 实习经历</div>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">算秩未来（九坤 IQuest）</div>
+          <div class="card-subtitle">Life Science LLM 算法实习生</div>
+        </div>
+        <div class="card-date">2025.09 — 至今（6 个月）</div>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li><strong>数据构造：</strong>主导生命科学大模型 CPT 阶段多类型训练数据搭建，覆盖单领域（核酸 / 蛋白 / SMILES 小分子序列）及跨领域（生命科学序列 + 科学文本），总量级达 <strong>1T token</strong>。</li>
+          <li><strong>持续预训练（CPT）：</strong>基于 Qwen3-4B 基底模型定制化改造（扩展科学领域专用词表），采用 Megatron / HF Transformers 框架将生命科学序列数据注入模型。</li>
+          <li><strong>评测：</strong>开展生命科学 Benchmark 全景调研，构建生命科学 LLM 评测体系。</li>
+        </ul>
+      </div>
+      <div class="tags">
+        <span class="tag">Qwen3</span>
+        <span class="tag">Megatron-LM</span>
+        <span class="tag">CPT</span>
+        <span class="tag">Tokenizer 定制</span>
+        <span class="tag">Benchmark 评测</span>
+        <span class="tag">核酸 / 蛋白 / SMILES</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PUBLICATIONS ═══ -->
+  <section>
+    <div class="section-title">📝 代表性论文</div>
+    <div class="card">
+      <div class="pub">
+        <div class="title">
+          Lai S.#, Zhang L.#, Tu X.#, <strong>Ma X.#</strong>（共同一作）, Song Y., Cao K., … Huang Z.
+          <span class="venue">Science Advances · IF 13.6</span>
+        </div>
+        <div style="font-size:.88rem; margin-top:.3rem;">
+          Termination of convulsion seizures by destabilizing and perturbing seizure memory engrams. <em>(2024)</em>
+        </div>
+        <div class="note">将学习记忆研究范式外推至癫痫：把癫痫病视为一种异常记忆，采用干预记忆的方法进行治疗探索。</div>
+      </div>
+      <hr style="border:none; border-top:1px solid var(--border); margin: .9rem 0;">
+      <div class="pub">
+        <div class="title">
+          He L., Yu Z., Geng Z., Huang Z., … <strong>Ma X.</strong>, … Zhao Y.
+          <span class="venue">Nature Communications · IF 15.7</span>
+        </div>
+        <div style="font-size:.88rem; margin-top:.3rem;">
+          Structure, gating, and pharmacology of human Ca<sub>V</sub>3.3 channel. <em>(2022)</em>
+        </div>
+        <div class="note">与结构生物学领域合作，解析 Cav3.3 钙通道蛋白结构；负责膜片钳电生理测量钙蛋白电流。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AWARDS ═══ -->
+  <section>
+    <div class="section-title">🏅 荣誉奖项</div>
+    <div class="card">
+      <div class="award-list">
+        <div class="award-item">🎓 北京大学优秀毕业生 <span class="year">2021</span></div>
+        <div class="award-item">🏆 北京大学五四奖学金 <span class="year">2018</span></div>
+        <div class="award-item">⭐ 北京大学三好学生 <span class="year">2018 · 2019 · 2024</span></div>
+        <div class="award-item">💊 张礼和院士-浙江医药奖学金</div>
+        <div class="award-item">💊 富力医学教育奖学金</div>
+        <div class="award-item">💊 扬子江药业奖学金</div>
+        <div class="award-item">💊 澳美制药奖学金</div>
+        <div class="award-item">🏅 北京大学优秀团员</div>
+        <div class="award-item">🏅 医学部优秀团干部</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONFERENCES ═══ -->
+  <section>
+    <div class="section-title">🌏 学术会议</div>
+    <div class="card">
+      <div class="card-body">
+        <ul>
+          <li><strong>第 14 届 FENS（欧洲神经科学协会联合会大会）</strong>，奥地利维也纳，2024.06 — <em>Poster 展示</em></li>
+          <li><strong>第一届脑科学创新与转化高峰论坛</strong>，宁波，2024.04 — <em>协助导师主办</em></li>
+          <li>第 39 届 IUPS（国际生理科学联合会大会），北京，2022.05</li>
+          <li>第六届离子通道与受体青年学者学术论坛，武汉，2022.07</li>
+          <li>第五届离子通道与受体青年学者学术论坛，南京，2021.04</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERESTS ═══ -->
+  <section>
+    <div class="section-title">✨ 兴趣与其他</div>
+    <div class="interests-grid">
+      <div class="interest-card">💃 舞蹈<br><small style="color:var(--muted)">学校舞团团龄 5 年，参加多次校级大型演出</small></div>
+      <div class="interest-card">📷 摄影<br><small style="color:var(--muted)">历年课题组毕业照拍摄者</small></div>
+      <div class="interest-card">🏔️ 旅行<br><small style="color:var(--muted)">擅长做攻略，攀登过海拔 4000m+ 的川西高原</small></div>
+    </div>
+    <div class="card" style="margin-top:.8rem;">
+      <div class="card-title" style="font-size:.93rem; color:var(--muted); margin-bottom:.6rem;">学生工作经历</div>
+      <div class="card-body">
+        <ul>
+          <li>南山中学北京校友会会长（2018–2019）</li>
+          <li>北京大学药学院团委组织部部长（2019–2020）</li>
+          <li>双一流国际建设论坛暨北京论坛（2018）志愿者</li>
+          <li>联合国项目事务所第二届生命科学峰会（2018）志愿者</li>
+          <li>国家药监局药品安全科普讲解大赛（2019）主持人</li>
+          <li>北京大学药学院元旦晚会（2020）主持人</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 马昕玥 · Xinyue Ma &nbsp;·&nbsp; Peking University &nbsp;·&nbsp;
+  <a href="mailto:maxinyue@hsc.pku.edu.cn" style="color:var(--muted)">maxinyue@hsc.pku.edu.cn</a>
+</footer>
+
+</body>
+</html>
