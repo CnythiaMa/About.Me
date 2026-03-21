@@ -27,42 +27,61 @@
     header {
       background: linear-gradient(135deg, #1a3a5c 0%, #2c5f8a 60%, #4a90c4 100%);
       color: #fff;
-      padding: 3rem 1rem 2.5rem;
-      text-align: center;
+      padding: 2.5rem 2rem;
     }
-    header h1 { font-size: 2.6rem; font-weight: 700; letter-spacing: .05em; }
-    header .en-name { font-size: 1.15rem; opacity: .85; margin-top: .3rem; }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .header-text { flex: 1; }
+    header h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: .05em; }
+    header .en-name { font-size: 1.1rem; opacity: .85; margin-top: .2rem; }
     header .tagline {
-      margin-top: .8rem;
-      font-size: .95rem;
+      margin-top: .7rem;
+      font-size: .92rem;
       opacity: .75;
-      max-width: 520px;
-      margin-left: auto; margin-right: auto;
     }
     .contact-row {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: .6rem 1.4rem;
-      margin-top: 1.4rem;
-      font-size: .9rem;
+      flex-direction: column;
+      gap: .35rem;
+      margin-top: 1.1rem;
+      font-size: .88rem;
     }
     .contact-row a { color: #bee3f8; text-decoration: none; }
     .contact-row a:hover { color: #fff; text-decoration: underline; }
     .contact-icon { margin-right: .3em; }
     .btn-resume {
       display: inline-block;
-      margin-top: 1.6rem;
-      padding: .55rem 1.5rem;
+      margin-top: 1.3rem;
+      padding: .5rem 1.4rem;
       background: rgba(255,255,255,.15);
       border: 1.5px solid rgba(255,255,255,.6);
       border-radius: 24px;
       color: #fff;
-      font-size: .9rem;
+      font-size: .88rem;
       text-decoration: none;
       transition: background .2s;
     }
     .btn-resume:hover { background: rgba(255,255,255,.28); }
+    .header-photo {
+      flex-shrink: 0;
+      width: 240px;
+      height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,.35);
+    }
+    .header-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
 
     /* ─── Layout ─── */
     .container {
@@ -173,55 +192,36 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ─── Hero photo ─── */
-    .hero {
-      width: 100%;
-      max-height: 480px;
-      overflow: hidden;
-      position: relative;
-      display: block;
-    }
-    .hero img {
-      width: 100%;
-      height: 480px;
-      object-fit: cover;
-      object-position: center 30%;
-      display: block;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, #1a3a5c);
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 680px) {
+      .header-inner { flex-direction: column-reverse; align-items: center; text-align: center; }
+      .header-photo { width: 180px; height: 220px; }
+      .contact-row { align-items: center; }
       header h1 { font-size: 2rem; }
       .card { padding: 1rem 1.1rem; }
-      .hero img { height: 280px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ═══ HERO PHOTO ═══ -->
-<div class="hero">
-  <img src="photo.jpg" alt="马昕玥 Xinyue Ma" />
-</div>
-
 <!-- ═══ HEADER ═══ -->
 <header>
-  <h1>马昕玥</h1>
-  <p class="en-name">Xinyue Ma</p>
-  <p class="tagline">神经药理学博士生 · 生命科学大模型研究者<br>PhD Candidate in Neuropharmacology &amp; Life Science LLM Researcher</p>
-  <div class="contact-row">
-    <span><span class="contact-icon">📧</span><a href="mailto:maxinyue@hsc.pku.edu.cn">maxinyue@hsc.pku.edu.cn</a></span>
-    <span><span class="contact-icon">📱</span>18009057142</span>
-    <span><span class="contact-icon">📍</span>北京大学医学部，海淀区</span>
-    <span><span class="contact-icon">🔗</span><a href="https://github.com/CnythiaMa" target="_blank">github.com/CnythiaMa</a></span>
+  <div class="header-inner">
+    <div class="header-text">
+      <h1>马昕玥</h1>
+      <p class="en-name">Xinyue Ma</p>
+      <p class="tagline">神经药理学博士生 · 生命科学大模型研究者<br>PhD Candidate in Neuropharmacology &amp; Life Science LLM Researcher</p>
+      <div class="contact-row">
+        <span><span class="contact-icon">📧</span><a href="mailto:maxinyue@hsc.pku.edu.cn">maxinyue@hsc.pku.edu.cn</a></span>
+        <span><span class="contact-icon">📱</span>18009057142</span>
+        <span><span class="contact-icon">📍</span>北京大学医学部，海淀区</span>
+        <span><span class="contact-icon">🔗</span><a href="https://github.com/CnythiaMa" target="_blank">github.com/CnythiaMa</a></span>
+      </div>
+      <a class="btn-resume" href="resume_Xinyue_Ma_Peking_University.pdf" target="_blank">📄 下载简历 / Download CV</a>
+    </div>
+    <div class="header-photo">
+      <img src="photo.jpg" alt="马昕玥 Xinyue Ma" />
+    </div>
   </div>
-  <a class="btn-resume" href="resume_Xinyue_Ma_Peking_University.pdf" target="_blank">📄 下载简历 / Download CV</a>
 </header>
 
 <div class="container">
