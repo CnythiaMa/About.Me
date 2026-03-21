@@ -173,13 +173,42 @@
       border-top: 1px solid var(--border);
     }
 
+    /* ─── Hero photo ─── */
+    .hero {
+      width: 100%;
+      max-height: 480px;
+      overflow: hidden;
+      position: relative;
+      display: block;
+    }
+    .hero img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, transparent, #1a3a5c);
+    }
+
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       .card { padding: 1rem 1.1rem; }
+      .hero img { height: 280px; }
     }
   </style>
 </head>
 <body>
+
+<!-- ═══ HERO PHOTO ═══ -->
+<div class="hero">
+  <img src="photo.jpg" alt="马昕玥 Xinyue Ma" />
+</div>
 
 <!-- ═══ HEADER ═══ -->
 <header>
