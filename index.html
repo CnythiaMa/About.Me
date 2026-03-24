@@ -230,9 +230,8 @@
   <section>
     <div class="card" style="border-left: 4px solid var(--accent);">
       <div class="card-body">
-        北京大学药学院神经药理学方向直博生，预计 2027 年 1 月毕业。
-        研究方向涵盖神经科学、膜片钳电生理、代谢与癫痫离子通道；
-        AI跨界者，在算秩未来（九坤IQuest)从事生命科学大语言模型研发，主导 <strong>1T token</strong> 量级数据构造，参与持续预训练与评测领域工作。
+        <p>北京大学药学院神经药理学方向直博生，预计 2027 年 1 月毕业。研究方向涵盖神经科学、膜片钳电生理、代谢与癫痫离子通道。</p>
+        <p style="margin-top:.6rem;">AI跨界者，在算秩未来（九坤IQuest)从事生命科学大语言模型研发，主导 <strong>1T token</strong> 量级数据构造，参与持续预训练与评测领域工作。</p>
       </div>
       <div class="tags">
         <span class="tag">神经科学</span>
@@ -291,7 +290,7 @@
         <ul>
           <li><strong>数据构造：</strong>主导生命科学大模型 CPT 阶段多类型训练数据搭建，总量级达 <strong>1T token</strong>。通过直接下载、网络爬虫、书目召回三条路径系统性获取多源异构语料：从 NCBI、UniProt、ChEMBL 等权威数据库下载核酸 / 蛋白 / 小分子 / 药物-靶标等数据；爬取 DrugBank、UpToDate、IntuitionLabs、IQVIA 等医药网站补充行业知识；从美国国会图书馆等数据源构建 ~1,600 万条书目索引，建立大规模书籍召回能力。在此基础上将生命科学序列封装入自定义序列标签（special token），并将单领域数据入库至 OceanBase 分布式数据库，支持跨领域数据构造——涵盖序列与功能描述拼接、文献文本融合、基于中心法则的核酸-蛋白对等多类型语料。</li>
           <li><strong>持续预训练（CPT）：</strong>基于 Qwen3-4B 基底模型进行定制化改造，采用 BPE 算法扩展科学领域专用词表，使模型能够对核酸 / 蛋白质 / 小分子序列进行专用分词；随后采用 Megatron / HF Transformers 框架，将生命科学序列数据注入模型完成持续预训练。</li>
-          <li><strong>评测：</strong>系统调研生命科学相关 Benchmark（覆盖知识推理、实验能力、序列操作、分子设计等维度），并跟踪主流模型 SOTA 作为基准线；构建可落地的评测套件集成进内部评测系统 SiEval——涵盖前沿知识推理（HLE、FrontierScience）、科学预测（SciPredict、deep-principle-sde）、生物学实验能力（LAB-Bench）等维度；对每个数据集完成数据筛选与格式标准化，并复现官方评测水平，为模型迭代提供可信的量化反馈。</li>
+          <li><strong>评测：</strong>系统调研<a href="https://cnythiama.github.io/lifesci-benchmark-survey/overview.html" target="_blank" style="color:inherit;">生命科学相关 Benchmark</a>（覆盖知识推理、实验能力、序列操作、分子设计等维度），并跟踪主流模型 SOTA 作为基准线；构建可落地的评测套件集成进内部评测系统 SiEval——涵盖前沿知识推理（HLE、FrontierScience）、科学预测（SciPredict、deep-principle-sde）、生物学实验能力（LAB-Bench）等维度；对每个数据集完成数据筛选与格式标准化，并复现官方评测水平，为模型迭代提供可信的量化反馈。</li>
         </ul>
       </div>
       <div class="tags">
@@ -315,7 +314,7 @@
           <span class="venue">Science Advances · IF 13.6</span>
         </div>
         <div style="font-size:.88rem; margin-top:.3rem;">
-          Termination of convulsion seizures by destabilizing and perturbing seizure memory engrams. <em>(2024)</em>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/38507477/" target="_blank" style="color:inherit;">Termination of convulsion seizures by destabilizing and perturbing seizure memory engrams.</a> <em>(2024)</em>
         </div>
         <div class="note">将学习记忆研究范式外推至癫痫：把癫痫病视为一种异常记忆，采用干预记忆的方法进行治疗探索。</div>
       </div>
@@ -326,7 +325,7 @@
           <span class="venue">Nature Communications · IF 15.7</span>
         </div>
         <div style="font-size:.88rem; margin-top:.3rem;">
-          Structure, gating, and pharmacology of human Ca<sub>V</sub>3.3 channel. <em>(2022)</em>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/35440630/" target="_blank" style="color:inherit;">Structure, gating, and pharmacology of human Ca<sub>V</sub>3.3 channel.</a> <em>(2022)</em>
         </div>
         <div class="note">与结构生物学领域合作，解析 Cav3.3 钙通道蛋白结构；负责膜片钳电生理测量钙蛋白电流。</div>
       </div>
