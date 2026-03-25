@@ -294,7 +294,7 @@
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过直接下载、网络爬虫、书目召回三条路径系统性获取多源异构语料：从 NCBI、UniProt、ChEMBL 等权威数据库下载核酸 / 蛋白 / 小分子 / 药物-靶标等数据；爬取 DrugBank、UpToDate、IntuitionLabs、IQVIA 等医药网站补充行业知识；从美国国会图书馆等数据源构建 ~1,600 万条书目索引，建立大规模书籍召回能力。在此基础上将生命科学序列封装入自定义序列标签（special token），并将单领域数据入库至 OceanBase 分布式数据库，支持跨领域数据构造——涵盖序列与功能描述拼接、文献文本融合、基于中心法则的核酸-蛋白对等多类型语料。</div>
           </li>
           <li style="margin-top:.6rem;">
-            <strong>持续预训练（CPT）：</strong>定制化改造 Qwen3-4B 基底模型，扩展科学专用词表并完成生命科学序列数据注入。<a href="https://github.com/CnythiaMa/lifesci-qwen3-4b" target="_blank" style="color:inherit;"><strong>[示例仓库]</strong></a>
+            <strong>持续预训练（CPT）：</strong>定制化改造 Qwen3-4B 基底模型，扩展科学专用词表并使用<strong>Megatron</strong>框架cpt，完成生命科学序列数据注入。<a href="https://github.com/CnythiaMa/lifesci-qwen3-4b" target="_blank" style="color:inherit;"><strong>[示例仓库]</strong></a>
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">采用 BPE 算法扩展科学领域专用词表，使模型能够对核酸 / 蛋白质 / 小分子序列进行专用分词；随后采用 <strong>Megatron</strong> / HF Transformers 框架，将生命科学序列数据注入模型完成持续预训练。</div>
           </li>
           <li style="margin-top:.6rem;">
