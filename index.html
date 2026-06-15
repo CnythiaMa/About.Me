@@ -297,22 +297,27 @@
       <div class="card-header">
         <div>
           <div class="card-title">腾讯 TEG 数据科学</div>
-          <div class="card-subtitle">青云计划实习生 · SFT 数据质检</div>
+          <div class="card-subtitle">青云计划实习生 · 后训练数据质检</div>
         </div>
-        <div class="card-date">2026.04 — 至今</div>
+        <div class="card-date">2026.04 — 2026.06</div>
       </div>
       <div class="card-body">
         <ul>
           <li>
-            <strong>SFT 数据质检：</strong>负责<strong>腾讯混元基模</strong> SFT 数据质检工作，基于 <strong>LLM-as-Judge</strong> 范式对蒸馏数据与 SFT 数据进行自动化质检与筛选，覆盖长文理解、复杂指令遵循、自然语言理解等任务类型。
-            <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过对接人类标注专家、迭代裁判模型 prompt，将<strong>百级人工标注样本</strong>中沉淀的质检标准泛化至<strong>万级 SFT 训练数据</strong>的自动审核，有效降低数据污染风险并提升训练数据质量。</div>
+            <strong>后训练数据自动化质检：</strong>为提升<strong>腾讯混元基模</strong>后训练数据质量，构建基于 <strong>LLM-as-Judge</strong> 的自动化质检与筛选 pipeline，覆盖长文理解、复杂指令遵循、自然语言理解等任务类型。
+            <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过对接人类标注专家、迭代裁判模型 prompt，将<strong>百级人工标注样本</strong>中沉淀的质检标准泛化至<strong>万级训练数据</strong>的自动筛选，有效降低数据污染，交付数据在下游评测中带来正向收益。</div>
+          </li>
+          <li style="margin-top:.6rem;">
+            <strong>分层质检 Pipeline：</strong>采用「规则预筛 + LLM judge」的分层架构，串联任务分类、Prompt 质量判断、多回答优选排序、Thinking 质量检查、Answer 验证等环节。
+            <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过构造原子化的 rubric criteria，从逻辑正确性、幻觉、语言一致性、冗余度、答案一致性等维度对数据进行筛选；并针对不同环节匹配规则引擎或不同能力的裁判模型，以平衡成本与精度。</div>
           </li>
         </ul>
       </div>
       <div class="tags">
         <span class="tag">混元基模</span>
         <span class="tag">LLM-as-Judge</span>
-        <span class="tag">SFT 数据质检</span>
+        <span class="tag">后训练数据质检</span>
+        <span class="tag">Rubric Criteria</span>
         <span class="tag">Prompt Engineering</span>
       </div>
     </div>
@@ -328,15 +333,15 @@
       <div class="card-body">
         <ul>
           <li>
-            <strong>数据构造：</strong>主导生命科学大模型 CPT 阶段多类型训练数据搭建，总量级达 <strong>1T token</strong>。
-            <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过直接下载、网络爬虫、书目召回三条路径系统性获取多源异构语料：从 NCBI、UniProt、ChEMBL 等权威数据库下载核酸 / 蛋白 / 小分子 / 药物-靶标等数据；爬取 DrugBank、UpToDate、IntuitionLabs、IQVIA 等医药网站补充行业知识；从美国国会图书馆等数据源构建 ~1,600 万条书目索引，建立大规模书籍召回能力。在此基础上将生命科学序列封装入自定义序列标签（special token），并将单领域数据入库至 OceanBase 分布式数据库，支持跨领域数据构造——涵盖序列与功能描述拼接、文献文本融合、基于中心法则的核酸-蛋白对等多类型语料。</div>
+            <strong>数据构造：</strong>为提升通用模型的生命科学能力，主导构建生命科学领域 <strong>CPT 与 SFT</strong> 训练数据，覆盖单领域（核酸 / 蛋白 / SMILES 小分子序列）与跨领域（生命科学序列 + 科学文本）两类数据，总量级达 <strong>1T token</strong>。
+            <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">通过直接下载、网络爬虫、书目召回三条路径系统性获取多源异构语料：从 Hugging Face、NCBI、UniProt、ChEMBL 等权威数据库下载核酸 / 蛋白 / 小分子 / 药物-靶标等数据；爬取 DrugBank、UpToDate、IntuitionLabs、IQVIA 等医药网站补充行业知识；从美国国会图书馆等数据源构建 ~1,600 万条书目索引，建立大规模书籍召回能力。在此基础上将生命科学序列封装入自定义序列标签（special token），并将单领域数据入库至 OceanBase 分布式数据库，支持跨领域数据构造——涵盖序列与功能描述拼接、文献文本融合、基于中心法则的核酸-蛋白对等多类型语料。</div>
           </li>
           <li style="margin-top:.6rem;">
-            <strong>持续预训练（CPT）：</strong>定制化改造 Qwen3-4B 基底模型，扩展科学专用词表并使用<strong>Megatron</strong>框架cpt，完成生命科学序列数据注入。
+            <strong>持续预训练（CPT）：</strong>为实现生命科学序列数据高效注入，定制化改造 Qwen3-4B 基底模型，扩展科学专用词表，<strong>领域专用 token 压缩率提升 4–5 倍</strong>。
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">采用 BPE 算法扩展科学领域专用词表，使模型能够对核酸 / 蛋白质 / 小分子序列进行专用分词；随后采用 <strong>Megatron</strong> / HF Transformers 框架，将生命科学序列数据注入模型完成持续预训练。</div>
           </li>
           <li style="margin-top:.6rem;">
-            <strong>评测：</strong>系统调研生命科学Benchmark，构建评测套件集成进内部系统，支持 <strong>MaaS API</strong> 与 <strong>vLLM</strong> 本地推理的混合框架。
+            <strong>评测与推理：</strong>为评估模型在生命科学垂域的能力，开展生命科学 Benchmark 全景调研，将分散的评测基准集成至统一框架，支持 <strong>MaaS API</strong> 与 <strong>vLLM</strong> 本地推理的不同评测模式。
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">覆盖知识推理、实验能力、序列操作、分子设计等维度，跟踪主流模型 SOTA 作为基准线；涵盖前沿知识推理（HLE、FrontierScience）、科学预测（SciPredict、deep-principle-sde）、生物学实验能力（LAB-Bench）等；对每个数据集完成数据筛选与格式标准化，并复现官方评测水平，为模型迭代提供可信的量化反馈。</div>
           </li>
         </ul>
