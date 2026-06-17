@@ -341,7 +341,7 @@
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">采用 BPE 算法扩展科学领域专用词表，使模型能够对核酸 / 蛋白质 / 小分子序列进行专用分词；随后采用 <strong>Megatron</strong> / HF Transformers 框架，将生命科学序列数据注入模型完成持续预训练。</div>
           </li>
           <li style="margin-top:.6rem;">
-            <strong>评测与推理：</strong>为评估模型在生命科学垂域的能力，开展生命科学 Benchmark 全景调研，将分散的评测基准集成至统一框架，支持 <strong>MaaS API</strong> 与 <strong>vLLM</strong> 本地推理的不同评测模式。
+            <strong>评测与推理：</strong>为评估模型在生命科学垂域的能力，开展生命科学 Benchmark 全景调研<a href="https://cnythia-scitix.github.io/benchmark-overview/" target="_blank" style="color:var(--accent);font-weight:600;">【示例采样】</a>，将分散的评测基准集成至统一框架<a href="https://iquestlab.github.io/UBio-ARCK/" target="_blank" style="color:var(--accent);font-weight:600;">【Leaderboard 网页】</a>，支持 <strong>MaaS API</strong> 与 <strong>vLLM</strong> 本地推理的不同评测模式。
             <div style="color:var(--muted);font-size:.83rem;margin-top:.25rem;">覆盖知识推理、实验能力、序列操作、分子设计等维度，跟踪主流模型 SOTA 作为基准线；涵盖前沿知识推理（HLE、FrontierScience）、科学预测（SciPredict、deep-principle-sde）、生物学实验能力（LAB-Bench）等；对每个数据集完成数据筛选与格式标准化，并复现官方评测水平，为模型迭代提供可信的量化反馈。</div>
           </li>
         </ul>
